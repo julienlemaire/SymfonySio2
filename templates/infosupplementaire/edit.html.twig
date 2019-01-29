@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Infosupplementaire{% endblock %}
+
+{% block body %}
+    <h1>Edit Infosupplementaire</h1>
+
+    {{ include('infosupplementaire/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('infosupplementaire_index') }}">back to list</a>
+
+    {{ include('infosupplementaire/_delete_form.html.twig') }}
+{% endblock %}

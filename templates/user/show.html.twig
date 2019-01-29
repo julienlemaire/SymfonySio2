@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block body %}
+    <h1>User</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ user.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ user.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ user.sexe ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Datenaissance</th>
+                <td>{{ user.datenaissance ? user.datenaissance|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Nationalite</th>
+                <td>{{ user.nationalite }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ user.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Addresse</th>
+                <td>{{ user.addresse }}</td>
+            </tr>
+            <tr>
+                <th>Codepostale</th>
+                <td>{{ user.codepostale }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ user.ville }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Mdp</th>
+                <td>{{ user.mdp }}</td>
+            </tr>
+            <tr>
+                <th>Recevoirmail</th>
+                <td>{{ user.recevoirmail }}</td>
+            </tr>
+            <tr>
+                <th>Accident</th>
+                <td>{{ user.accident ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Droitimage</th>
+                <td>{{ user.droitimage ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Infocomplementaire</th>
+                <td>{{ user.infocomplementaire }}</td>
+            </tr>
+            <tr>
+                <th>Idrole</th>
+                <td>{{ user.idrole }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('user_index') }}">back to list</a>
+
+    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+
+    {{ include('user/_delete_form.html.twig') }}
+{% endblock %}

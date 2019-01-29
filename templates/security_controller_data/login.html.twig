@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connect {% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <form method="POST">
+                <div id = "formConnexion">
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    {{ form_end(form) }}
+                    
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

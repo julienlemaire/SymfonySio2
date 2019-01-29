@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Infosupplementaire index{% endblock %}
+
+{% block body %}
+    <h1>Infosupplementaire index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Assurance</th>
+                <th>Garantie</th>
+                <th>Optiongarantie</th>
+                <th>TypePaiement</th>
+                <th>DemandeFacture</th>
+                <th>NiveauTechnique</th>
+                <th>DateCreation</th>
+                <th>PassJeune</th>
+                <th>DossierComplet</th>
+                <th>Iduser</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for infosupplementaire in infosupplementaires %}
+            <tr>
+                <td>{{ infosupplementaire.id }}</td>
+                <td>{{ infosupplementaire.assurance ? 'Yes' : 'No' }}</td>
+                <td>{{ infosupplementaire.garantie ? 'Yes' : 'No' }}</td>
+                <td>{{ infosupplementaire.optiongarantie }}</td>
+                <td>{{ infosupplementaire.typePaiement }}</td>
+                <td>{{ infosupplementaire.demandeFacture ? 'Yes' : 'No' }}</td>
+                <td>{{ infosupplementaire.niveauTechnique }}</td>
+                <td>{{ infosupplementaire.dateCreation ? infosupplementaire.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ infosupplementaire.passJeune ? 'Yes' : 'No' }}</td>
+                <td>{{ infosupplementaire.dossierComplet ? 'Yes' : 'No' }}</td>
+                <td>{{ infosupplementaire.iduser }}</td>
+                <td>
+                    <a href="{{ path('infosupplementaire_show', {'id': infosupplementaire.id}) }}">show</a>
+                    <a href="{{ path('infosupplementaire_edit', {'id': infosupplementaire.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('infosupplementaire_new') }}">Create new</a>
+{% endblock %}
